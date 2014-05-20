@@ -19,7 +19,7 @@ setup(
         'hamlpy',
         'markdown',
         'PyYaml',
-        'jinja2', 
+        'jinja2',
         'jinja2-hamlpy',
         'python-dateutil',
         'coffeescript',

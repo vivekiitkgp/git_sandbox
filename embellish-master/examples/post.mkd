@@ -7,5 +7,5 @@ Excerpt of post
 
 ## Markdown Sub-headers!
 
-This is the _body_ of the text 
+This is the _body_ of the text
 written in markdown

@@ -42,8 +42,8 @@ def get_dict_val(my_dict, *keys):
   for key in keys:
     if key not in my_dict:
       return None
-    val = my_dict[key]  
-    my_dict = val    
+    val = my_dict[key]
+    my_dict = val
   return val
 
 
@@ -100,18 +100,18 @@ def is_uptodate(src, dst):
 
 def read_page(fname):
   """
-  Returns a page dictionary with text from fname, and fields 
+  Returns a page dictionary with text from fname, and fields
   overriden by metadata found in fname.
   """
   page = {
     'template': 'default.haml',  # name of template file
     'filename': fname,  # name of markdown file
-    'modified': os.path.getmtime(fname),  # unix time number of file  
+    'modified': os.path.getmtime(fname),  # unix time number of file
     'checksum': '', # checksum used to check final output to avoid redundant writes
     'excerpt': '', # text to put in excerpt, no tags please!
     'content': '',  # main text of article
     'title': '',  # title for indexing and for large display
-    'category': '',  # category of article for indexing 
+    'category': '',  # category of article for indexing
     'rel_site_url': '',  # the top site directory relative to this page
     'date': None,  # published date
     'slug': None,  # url-safe name of article used to make url and files
@@ -213,10 +213,10 @@ def parse_metadata(page, site):
 
 
 def get_pages(
-    site, convert_content_fn=convert_markdown, 
+    site, convert_content_fn=convert_markdown,
     parse_metadata_fn=parse_metadata):
   """
-  Read all text files into site['pages'] with processing of 
+  Read all text files into site['pages'] with processing of
   metadata.
   """
   cached_pages = { p['filename']:p for p in site['pages'] }
@@ -282,7 +282,7 @@ def get_category_subpages(index_page, site):
 def get_jinjahaml_template(fname):
   dirname, basename = os.path.split(fname)
   jinja2_env = Environment(
-    loader=FileSystemLoader(dirname), 
+    loader=FileSystemLoader(dirname),
     extensions=[HamlPyExtension])
   return jinja2_env.get_template(basename)
 
@@ -353,7 +353,7 @@ def write_pages(site, render_template_fn=render_jinjahaml_template):
 # transfer functions to copy the static directory
 
 _scss_compiler = scss.Scss(scss_opts={'style':'expanded'})
-def scss_to_css(src, dst_dir, site): 
+def scss_to_css(src, dst_dir, site):
   dst = os.path.join(dst_dir, os.path.basename(src))
   dst = os.path.splitext(dst)[0] + '.css'
   if not has_extensions(src, '.sass', '.scss'):
@@ -377,7 +377,7 @@ def scss_to_css(src, dst_dir, site):
   return dst
 
 
-def jinjahaml_to_html(src, dst_dir, site): 
+def jinjahaml_to_html(src, dst_dir, site):
   """
   Compiles .haml src to a .html file in dst_dir.
   """
@@ -408,7 +408,7 @@ def jinjahaml_to_html(src, dst_dir, site):
   return dst
 
 
-def coffee_compile(src, dst_dir, site): 
+def coffee_compile(src, dst_dir, site):
   dst = os.path.join(dst_dir, os.path.basename(src))
   dst = os.path.splitext(dst)[0] + '.js'
   if not has_extensions(src, '.coffee'):
@@ -442,9 +442,9 @@ def direct_copy(src, dst_dir, site):
 def copy_or_process_sass_and_haml(src, dst_dir, site):
   """
   Default transfer files, will copy or process .sass and .haml
-  depending on file extension. 
+  depending on file extension.
   """
-  # This is recognized by the target transfer fns, which 
+  # This is recognized by the target transfer fns, which
   # return True if activated.
   if scss_to_css(src, dst_dir, site):
     return
@@ -465,7 +465,7 @@ def transfer_media_files(
 
   def copy_tree(src, dst):
     """
-    Copies files with copy_file_fn from 'src' to 'dst', then 
+    Copies files with copy_file_fn from 'src' to 'dst', then
     recurses over sub-directories.
     """
     if not os.path.isdir(dst):
@@ -501,7 +501,7 @@ def generate_site(
 
   logger.info(">>> Processing template rendering")
   write_pages(site, render_template_fn)
-  
+
   logger.info(">>> Processing media files")
   transfer_media_files(site, copy_file_fn)
 
@@ -557,6 +557,3 @@ def read_config_yaml(config):
   site = default_site
   site.update(load_site)
   return site
-
-
-  

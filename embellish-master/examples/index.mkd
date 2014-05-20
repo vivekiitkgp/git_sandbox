@@ -7,6 +7,6 @@ title: Blog Posts
 ---
 Short excerpt of this post.
 ---
-Some words to describe the following list of 
-posts that are arranged in reverse chronological 
+Some words to describe the following list of
+posts that are arranged in reverse chronological
 order.

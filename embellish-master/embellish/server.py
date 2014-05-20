@@ -8,7 +8,7 @@ import sys
 import string
 import random
 import webbrowser
-import threading 
+import threading
 
 # import gevent
 # import gevent.monkey
@@ -24,8 +24,8 @@ STASIS
 A simple static web-site server.
  - adds trailing / to directories
  - adds implied .html to clean urls
- - has a site regeneration hook 
- - monitors modfiications in directories 
+ - has a site regeneration hook
+ - monitors modfiications in directories
 
 usage: stasis.py static_web_dir
 '''
@@ -34,7 +34,7 @@ usage: stasis.py static_web_dir
 app = Flask(__name__)
 handler = logging.StreamHandler(stream=sys.stdout)
 handler.setLevel(logging.INFO)
-app.logger.addHandler(handler)  
+app.logger.addHandler(handler)
 
 
 def is_something_changed():
@@ -116,4 +116,3 @@ if __name__ == "__main__":
   else:
     site_dir = os.path.abspath(sys.argv[1])
     run(site_dir, [], None)
-

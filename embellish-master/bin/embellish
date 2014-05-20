@@ -16,15 +16,15 @@ EMBELLISH %s: a low friction static website generator.
 Usage: embellish [options] <target>
 
 Options:
-  <target>  1. If target is directory, processes all 
+  <target>  1. If target is directory, processes all
                text files in directory
             2. If target is a .yaml file, reads it as
                a configuration file
-            3. Otherwise, this is processed as a text 
+            3. Otherwise, this is processed as a text
                file.
   -m  triggers a local web-server that monitors the
-      contents directory 
-  -f  force rebuild from scratch 
+      contents directory
+  -f  force rebuild from scratch
   -r  searches sub-directories to find content
 
 ''' % __version__
@@ -78,5 +78,3 @@ if args['-m']:
   monitor_dirs.append(defaults_dir)
 
   server.run(site_dir, monitor_dirs, regenerate)
-
-

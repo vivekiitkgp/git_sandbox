@@ -14,7 +14,7 @@ Other generators dictate your directories to be structured their way. `embellish
 
     > embellish -m .
 
-Boom! 
+Boom!
 
 `readme.html` is generated and opened in a browser. Now edit `readme.md`, save, and refresh the browser.
 
@@ -25,7 +25,7 @@ To install:
 
     pip install embellish
 
-Python depencencies should be automatically installed. 
+Python depencencies should be automatically installed.
 
 But if you want them manually, they are: `markdown`, `pyyaml`, `python-dateutil`, `jinja2`, `hamlpy`, `jinja2-hamlpy`, `flask` & `sassin`
 
@@ -33,11 +33,9 @@ But if you want them manually, they are: `markdown`, `pyyaml`, `python-dateutil`
 ## Changelog
 
 - 0.9.7
-    - added single file mode 
+    - added single file mode
     - docstring cleanup
     - docopt in binary
 - 0.9.6
     - added force option
     - fixed help for recursive option
-
-
