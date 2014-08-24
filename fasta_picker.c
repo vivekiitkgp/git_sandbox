@@ -38,10 +38,12 @@ int calculate_count(char *val, FILE *out) {
 }
 int main(int argc, char **argv) {
     /* Throw an error if filename is not supplied */
+    /*
     if(argc!=2) {
         fprintf(stderr, "Incorrect Command. Please provide file.\n");
         exit(-1);
     }
+    */
 
     /* I/O Variables and data strctures */
     FILE *in, *out;
@@ -54,7 +56,7 @@ int main(int argc, char **argv) {
      * before trying for higher number of sequences.*/
     entries = (fasta_entry *) malloc(sizeof(fasta_entry)*BUFFER);
 
-    in = fopen(argv[1], "r");
+    in = fopen("input.txt", "r");
     out = fopen("result.txt", "w");
 
     /* Throw error if cannot open input file. */
