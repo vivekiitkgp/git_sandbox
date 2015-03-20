@@ -4,6 +4,8 @@
 """ Calculates the number and percentage composition of different
 types of amino acid residues within a protein."""
 
+__author__ = "Vivek Rai"
+
 HYDROPHOBIC_AA = ['ALA', 'GLY', 'VAL', 'ILE', 'LEU', 'PRO']
 POSITIVE_AA    = ['ARG', 'LYS']
 NEGATIVE_AA    = ['ASP', 'GLU']
@@ -43,6 +45,8 @@ if __name__ == "__main__":
     with open('12AS.pdb', 'r', encoding='utf-8') as f:
         composition = get_composition(f)
         total_aa    = composition.pop('TOTAL_AA')
+
+        # pretty print the obtaiend results
         print('{:15}: 660, 100%'.format('TOTAL_AA'))
         for key, value in composition.items():
             print("{:15}: {:3}/{}, {:.2f} %".format(key,
